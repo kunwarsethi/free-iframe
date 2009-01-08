@@ -1,4 +1,5 @@
-# Specification / 規格
+#summary Specification / 規格
+#labels Featured
 
 = User Case =
 
