@@ -4,12 +4,12 @@
 
 Bob wants to put a set of slides from SlideShare on his Google Sites. It's a pity that Google Sites supports most of Google's services and Google Gadgets, but no other 3-party content with 'IFRAME' tag. Bob use the free-iframe gadget to solve this problem.
 
-# Bob insert this gadget on his Sites.
-# The browser shows a prompt to Bob for enter the content source URL, which originally comes from 'SRC' attribute in 'IFRAME' tag.
-# Bob paste the URL and select a proper size for the gadget, hit "OK."
-# After he click "Save" on his Site, the content from SlideShare correctly shows on the page.
+ # Bob insert this gadget on his Sites.
+ # The browser shows a prompt to Bob for enter the content source URL, which originally comes from 'SRC' attribute in 'IFRAME' tag.
+ # Bob paste the URL and select a proper size for the gadget, hit "OK."
+ # After he click "Save" on his Site, the content from SlideShare correctly shows on the page.
 
 = Requirement =
 
-* Embed content which user specified, correctly, with 'IFRAME' or maybe 'OBJECT'
-* In the very first version, we DON'T supports other attributions but 'SRC' in 'IFRAME' tag.
+ * Embed content which user specified, correctly, with 'IFRAME' or maybe 'OBJECT'
+ * In the very first version, we DON'T supports other attributions but 'SRC' in 'IFRAME' tag.
