@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs
+	title="free-iframe"
+	scrolling="true"
+	author="CHAO Po-chiang, free-iframe project"
+	author_link="http://code.google.com/p/free-iframe/" />
+  <Content type="html">
+  <![CDATA[ 
+    <iframe src="http://www.google.com"></iframe>
+  ]]> 
+  </Content>
+</Module>
