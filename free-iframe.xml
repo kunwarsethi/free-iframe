@@ -5,9 +5,20 @@
 	scrolling="true"
 	author="CHAO Po-chiang, free-iframe project"
 	author_link="http://code.google.com/p/free-iframe/" />
+  <UserPref name="embeded_content" display_name="Embeded content" default_value="&lt;div style='width:425px;text-align:left' id='__ss_755185'&gt; &lt;a style='font:14px Helvetica,Arial,Sans-serif;display:block;margin:12px 0 3px 0;text-decoration:underline;' href='http://www.slideshare.net/bobchao/kfree-presentation?type=powerpoint' title='Free Culture (6 mins in Chinese)'&gt; Free Culture (6 mins in Chinese)&lt;/a&gt;&lt;object style='margin:0px' width='425' height='355'&gt; &lt;param name='movie' value='http://static.slideshare.net/swf/ssplayer2.swf?doc=freeculture-1226744993314955-8&amp;stripped_title=kfree-presentation' /&gt; &lt;param name='allowFullScreen' value='true'/&gt;&lt;param name='allowScriptAccess' value='always'/&gt;&lt;embed src='http://static.slideshare.net/swf/ssplayer2.swf?doc=freeculture-1226744993314955-8&amp;stripped_title=kfree-presentation' type='application/x-shockwave-flash' allowscriptaccess='always' allowfullscreen='true' width='425' height='355'&gt;&lt;/embed&gt;&lt;/object&gt;&lt;div style='font-size:11px;font-family:tahoma,arial;height:26px;padding-top:2px;'&gt;View SlideShare &lt;a style='text-decoration:underline;' href='http://www.slideshare.net/bobchao/kfree-presentation?type=powerpoint' title='View Free Culture (6 mins in Chinese) on SlideShare'&gt;presentation&lt;/a&gt; or &lt;a style='text-decoration:underline;' href='http://www.slideshare.net/upload?type=powerpoint'&gt;Upload&lt;/a&gt; your own. (tags: &lt;a style='text-decoration:underline;' href='http://slideshare.net/tag/creativecommons'&gt;creativecommons&lt;/a&gt; &lt;a style='text-decoration:underline;' href='http://slideshare.net/tag/creative-commons'&gt;creative commons&lt;/a&gt;)&lt;/div&gt;&lt;/div&gt;"/>
   <Content type="html">
   <![CDATA[ 
-    <iframe src="http://www.google.com" style="border:0; margin: 0; padding: 0; height: 100%; width: 100%;"></iframe>
+   <script type="text/javascript">
+   var prefs = new gadgets.Prefs();
+   function displayContent () {
+     var element = document.getElementById('embeded_content_here');  
+     element.innerHTML = prefs.getString("embeded_content"); 
+   }
+
+   gadgets.util.registerOnLoadHandler(displayContent); 
+  
+   </script> 
+    <div id="embeded_content_here"></div>
   ]]> 
   </Content>
 </Module>
