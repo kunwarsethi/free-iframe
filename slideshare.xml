@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs
+	title="SlideShare"
+	author="CHAO Po-chiang, free-iframe project"
+	author_link="http://code.google.com/p/free-iframe/" />
+  <UserPref name="slideshare_url" display_name="SlideShare URL" default_value="http://www.slideshare.net/irvinfly/02-firefox-presentation"/>
+  <Content type="html">
+  <![CDATA[ 
+   <div style="width:425px;text-align:left" id="__ss_601418">
+      <a style="font:14px Helvetica,Arial,Sans-serif;display:block;margin:12px 0 3px 0;text-decoration:underline;" href="http://www.slideshare.net/irvinfly/02-firefox-presentation?type=powerpoint" title="9/17 02 網路瀏覽器：火狐Firefox">9/17 02 網路瀏覽器：火狐Firefox</a>
+      <object style="margin:0px" width="425" height="355">
+         <param name="movie" value="http://static.slideshare.net/swf/ssplayer2.swf?doc=02-firefox-1221589060121844-8&stripped_title=02-firefox-presentation" />
+         <param name="allowFullScreen" value="true"/>
+         <param name="allowScriptAccess" value="always"/>
+         <embed src="http://static.slideshare.net/swf/ssplayer2.swf?doc=02-firefox-1221589060121844-8&stripped_title=02-firefox-presentation" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355"></embed>
+      </object>
+      <div style="font-size:11px;font-family:tahoma,arial;height:26px;padding-top:2px;">
+         View SlideShare <a style="text-decoration:underline;" href="http://www.slideshare.net/irvinfly/02-firefox-presentation?type=powerpoint" title="View 9/17 02 網路瀏覽器：火狐Firefox on SlideShare">presentation</a> or <a style="text-decoration:underline;" href="http://www.slideshare.net/upload?type=powerpoint">Upload</a> your own. (tags: <a style="text-decoration:underline;" href="http://slideshare.net/tag/firefox">firefox</a> <a style="text-decoration:underline;" href="http://slideshare.net/tag/網路教學">網路教學</a>)
+      </div>
+   </div>
+  ]]> 
+  </Content>
+</Module>
