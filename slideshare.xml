@@ -6,19 +6,94 @@
 	author_link="http://code.google.com/p/free-iframe/" />
   <UserPref name="slideshare_url" display_name="SlideShare URL" default_value="http://www.slideshare.net/irvinfly/02-firefox-presentation"/>
   <Content type="html">
-  <![CDATA[ 
-   <div style="width:425px;text-align:left" id="__ss_601418">
-      <a style="font:14px Helvetica,Arial,Sans-serif;display:block;margin:12px 0 3px 0;text-decoration:underline;" href="http://www.slideshare.net/irvinfly/02-firefox-presentation?type=powerpoint" title="9/17 02 網路瀏覽器：火狐Firefox">9/17 02 網路瀏覽器：火狐Firefox</a>
-      <object style="margin:0px" width="425" height="355">
-         <param name="movie" value="http://static.slideshare.net/swf/ssplayer2.swf?doc=02-firefox-1221589060121844-8&stripped_title=02-firefox-presentation" />
-         <param name="allowFullScreen" value="true"/>
-         <param name="allowScriptAccess" value="always"/>
-         <embed src="http://static.slideshare.net/swf/ssplayer2.swf?doc=02-firefox-1221589060121844-8&stripped_title=02-firefox-presentation" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355"></embed>
-      </object>
-      <div style="font-size:11px;font-family:tahoma,arial;height:26px;padding-top:2px;">
-         View SlideShare <a style="text-decoration:underline;" href="http://www.slideshare.net/irvinfly/02-firefox-presentation?type=powerpoint" title="View 9/17 02 網路瀏覽器：火狐Firefox on SlideShare">presentation</a> or <a style="text-decoration:underline;" href="http://www.slideshare.net/upload?type=powerpoint">Upload</a> your own. (tags: <a style="text-decoration:underline;" href="http://slideshare.net/tag/firefox">firefox</a> <a style="text-decoration:underline;" href="http://slideshare.net/tag/網路教學">網路教學</a>)
-      </div>
-   </div>
+  <![CDATA[
+	<div id="slide"></div>
+	<script type="text/javascript">
+	var prefs = new gadgets.Prefs();
+
+	function makeDOMRequest(url) {    
+		var params = {};  
+		params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.DOM;
+		gadgets.io.makeRequest(url, response, params);
+      	};
+      	
+      	funciton makeContent(obj){
+      		var domdata = obj.data;
+      		c = document.getElementById('slide');
+      		embed_code = domdata.getElementById('svEmbed').getElementsByTagName('input')[0].getAttribute("value");
+      		c.innerHTML = embed_code;
+      		alert('done');
+	};
+
+	function init(){
+		makeDOMRequest(prefs.getString('slideshare_url'))
+	};
+
+	gadgets.util.registerOnLoadHandler(init); 
+	</script>
   ]]> 
   </Content>
 </Module>
+
+function response(obj) { 
+	// Start building HTML string that will be displayed in <div>.           
+        // Set the style for the <div>.		
+        var html = "<div style='padding: 5px;background-color: #ccf;font-family:Arial, Helvetica;" 
+          + "text-align:left;font-size:90%'>";   
+        // Set style for title.
+        html +="<div style='text-align:center; font-size: 120%; color: yellow; " 
+          + "font-weight: 700;'>"; 
+        // obj.data contains a Document DOM element corresponding to the
+        // page that was requested
+        var domdata = obj.data;
+
+        // Display menu title. Use getElementsByTagName() to retrieve the <menu> element.
+        // Since there is only one menu element in the file,
+        // you can get to it by accessing the item at index "0". 
+        // You can then use getAttribute to get the text associated with the
+        // menu "title" attribute.
+        var title = domdata.getElementsByTagName("menu").item(0).getAttribute("title");
+
+        // Alternatively, you could retrieve the title by getting the menu element node
+        // and calling the "attributes" function on it. This returns an array
+        // of the element node's attributes. In this case, there is only one
+        // attribute (title), so you could display the value for the attribute at
+        // index 0. For example:
+        // 
+        // var title = domdata.getElementsByTagName("menu").item(0).attributes.item(0).nodeValue; 
+
+        html += title + "</div><br>"; 
+        // Get a list of the <food> element nodes in the file
+        var itemList = domdata.getElementsByTagName("food");
+ 
+        // Loop through all <food> nodes
+        for (var i = 0; i < itemList.length ; i++) { 
+        // For each <food> node, get child nodes.
+        var nodeList = itemList.item(i).childNodes;
+
+        // Loop through child nodes. Extract data from the text nodes that are
+        // the children of the associated name, price, and calories element nodes.
+        for (var j = 0; j < nodeList.length ; j++) {
+          var node = nodeList.item(j);
+          if (node.nodeName == "name") 
+          {
+            var name = node.firstChild.nodeValue;
+          }
+          if (node.nodeName == "price") 
+          {
+            var price = node.firstChild.nodeValue;
+          }
+          if (node.nodeName == "calories") 
+          {
+            var calories = node.firstChild.nodeValue; 
+          }
+          // If the user chose to display descriptions and
+          // the child node is "#cdata-section", grab the 
+          // contents of the description CDATA for display.
+          if (node.nodeName == "description" && description==true)
+          {
+            if (node.firstChild.nodeName == "#cdata-section") 
+              var data = node.firstChild.nodeValue;
+          }
+        } 
+
