@@ -1,0 +1,1 @@
+Google Gadget for web site owner to put anything with `IFRAME`, as a workaround for sites that don't support `IFRAME` but allowed Google Gadget (say, Google Sites.)
